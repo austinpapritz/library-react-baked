@@ -3,7 +3,7 @@ import { getBookById } from '../services/books';
 
 import { useHistory } from 'react-router-dom';
 
-export function useBookDetail({ id }) {
+export function useBookDetail(id) {
   const history = useHistory();
   const [book, setBook] = useState();
   const [error, setError] = useState('');
@@ -16,6 +16,7 @@ export function useBookDetail({ id }) {
         setBook(data);
         setLoading(false);
       } catch (e) {
+        setError(e.message);
         history.push('/404');
       }
     };

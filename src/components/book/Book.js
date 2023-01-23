@@ -4,13 +4,20 @@ import './Book.css';
 import { Link } from 'react-router-dom';
 
 function Book({
-  book: { title, total_pages: totalPages, rating, isbn, published_date: publishedDate, authors },
+  book: {
+    title,
+    total_pages: totalPages,
+    rating,
+    isbn,
+    published_date: publishedDate,
+    authors,
+    book_id,
+  },
   showDetail = false,
-  book_id,
 }) {
   return (
     <article className="book">
-      <Link to={`/details/${book_id}`}>
+      <Link to={`/books/${book_id}`}>
         <h3>{title}</h3>
       </Link>
       <address>
