@@ -4,6 +4,7 @@ import { getBookById } from '../services/books';
 import { useHistory } from 'react-router-dom';
 
 export function useBookDetail({ id }) {
+  const history = useHistory();
   const [book, setBook] = useState();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
