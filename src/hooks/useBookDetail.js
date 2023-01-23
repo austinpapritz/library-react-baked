@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getBookById } from '../services/books';
 
+import { useHistory } from 'react-router-dom';
+
 export function useBookDetail({ id }) {
   const [book, setBook] = useState();
   const [error, setError] = useState('');
@@ -13,11 +15,11 @@ export function useBookDetail({ id }) {
         setBook(data);
         setLoading(false);
       } catch (e) {
-        setError(e.message);
+        history.push('/404');
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, history]);
 
   return { book, error, loading };
 }
