@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 function BookDetail() {
   const { id } = useParams(); // TODO: Use id from route
-  console.log('id', id);
   const { book, loading, error } = useBookDetail(id);
 
   if (error)
