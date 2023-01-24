@@ -17,16 +17,30 @@ function Book({
 }) {
   return (
     <article className="book">
-      <Link to={`/books/${book_id}`}>
-        <h3>{title}</h3>
-      </Link>
-      <address>
-        {authors.map((author) => (
-          <Author key={author.author_id} author={author} />
-        ))}
-      </address>
+      {!showDetail && (
+        <>
+          <Link to={`/books/${book_id}`}>
+            <h3>{title}</h3>
+          </Link>
+          <address>
+            {authors.map((author) => (
+              <Author key={author.author_id} author={author} />
+            ))}
+          </address>
+        </>
+      )}
+
       {showDetail && (
         <>
+          <Link to={'/books'}>
+            <h3>Back to Catalog</h3>
+          </Link>
+          <h3>{title}</h3>
+          <address>
+            {authors.map((author) => (
+              <Author key={author.author_id} author={author} />
+            ))}
+          </address>
           <p>Rating: {rating}</p>
           <p>ISBN: {isbn}</p>
           <p>Published {publishedDate}</p>
